@@ -22,8 +22,10 @@ export const UIToggle = ({ state, setState, sendSignal }: {
 	state: ToggleState;
 	setState: (state: any) => void;
 	setGlobalState: (state: any) => void;
-	sendSignal: (id: number | string, signal: string) => void;
+	sendSignal: (id: number | string, signal: string, otherStateChanges?: any) => void;
 }) => {
+	// const [inputs, setInputs] = setState({})
+
 	if (state.type !== 'toggle') {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
 		return <></>;
@@ -38,6 +40,16 @@ export const UIToggle = ({ state, setState, sendSignal }: {
 		cssClasses += stringToCssClassName(state.codeContext.name);
 	}
 
+	const toggle = (event: any) => {
+		let signal: string;
+		if (event.target.checked) {
+			signal = 'toggle_on'
+		} else {
+			signal = 'toggle_off'
+		}
+		sendSignal(state.id, signal, { ...state, checked: event.target.checked })
+	}
+
 	return <Toggle
 		labelA={state.offText}
 		labelB={state.onText}
@@ -46,6 +58,6 @@ export const UIToggle = ({ state, setState, sendSignal }: {
 		disabled={state.disabled}
 		size={state.size}
 		checked={!!state.checked}
-		onChange={(event: any) => setState({ ...state, checked: event.target.checked })}
+		onChange={(event: any) => toggle(event)}
 		className={cssClasses} />;
 };

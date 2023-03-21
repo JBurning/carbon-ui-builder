@@ -11,6 +11,7 @@ export interface GridState {
 	type: string;
 	items: any[]; // TODO row type
 	id: string | number;
+	isHidden: boolean | string;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -26,6 +27,9 @@ export const UIGrid = ({ state, setState, setGlobalState, sendSignal }: {
 }) => {
 	if (state.type !== 'grid') {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
+		return <></>;
+	}
+	if (state.isHidden == 'true') {
 		return <></>;
 	}
 

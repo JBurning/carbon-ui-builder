@@ -7,6 +7,7 @@ export interface ContentSwitcherState {
 	type: string;
 	items: [];
 	size: [];
+	id: string | number;
 	selectedIndex: number;
 	disabled?: string | boolean;
 	cssClasses?: CssClasses[];
@@ -36,9 +37,15 @@ export const UIContentSwitcher = ({ state, sendSignal }: {
 		cssClasses += stringToCssClassName(state.codeContext.name);
 	}
 
+	const handleSwitch = (item: any) => {
+		console.log(state.id)
+		sendSignal(state.id, 'switch_' + item.index)
+	}
+
 	return <ContentSwitcher
 	size={state.size}
 	selectedIndex={state.selectedIndex}
+	onChange={(event: any) => handleSwitch(state.items[event.index])}
 	className={cssClasses}>
 		{
 			state.items.map((step: any, index: number) => <Switch
