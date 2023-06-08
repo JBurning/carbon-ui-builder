@@ -8,6 +8,7 @@ export interface LinkState {
 	text: string;
 	id: string | number;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	inline?: boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
@@ -35,6 +36,11 @@ export const UILink = ({ state, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Link

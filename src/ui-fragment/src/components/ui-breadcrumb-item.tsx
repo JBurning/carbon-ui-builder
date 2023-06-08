@@ -8,6 +8,7 @@ export interface BreadcrumbItemState {
 	href?: string;
 	id: string | number;
 	label: string;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext?: {
 		name: string;
@@ -22,6 +23,11 @@ export const UIBreadcrumbItem = ({ state, sendSignal }: {
 }) => {
 	if (state.type !== 'breadcrumb-item') {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
+		return <></>;
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
 		return <></>;
 	}
 

@@ -10,6 +10,7 @@ export interface SelectableTileGroupState {
 	type: string;
 	id: string | number;
 	items?: any[];
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -35,6 +36,11 @@ export const UISelectableTileGroup = ({ state, setState, setGlobalState, sendSig
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <div

@@ -9,6 +9,7 @@ export interface RadioState {
 	labelText: string;
 	disabled?: string | boolean;
 	checked?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -35,6 +36,11 @@ export const UIRadio = ({ state, setState, name }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <RadioButton

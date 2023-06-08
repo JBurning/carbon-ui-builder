@@ -16,6 +16,7 @@ export interface RadioGroupState {
 	orientation: string;
 	labelPosition: string;
 	defaultSelected: string;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -41,6 +42,11 @@ export const UIRadioGroup = ({ state, setState, setGlobalState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <RadioButtonGroup

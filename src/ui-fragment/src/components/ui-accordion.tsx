@@ -14,6 +14,7 @@ export interface AccordionState {
 	id: string | number;
 	align?: string;
 	size?: string;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -39,6 +40,11 @@ export const UIAccordion = ({ state, sendSignal, setState, setGlobalState }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Accordion

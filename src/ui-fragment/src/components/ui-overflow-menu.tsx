@@ -14,6 +14,7 @@ export interface OverflowMenuState {
 	id: string | number;
 	placement?: string;
 	flipped?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -39,6 +40,11 @@ export const UIOverflowMenu = ({ state, setState, setGlobalState, sendSignal }: 
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <OverflowMenu

@@ -11,6 +11,7 @@ export interface ClickableTileState {
 	type: string;
 	light?: boolean;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	items?: any[];
 	cssClasses?: CssClasses[];
 	codeContext: {
@@ -37,6 +38,11 @@ export const UIClickableTile = ({ state, setState, setGlobalState, sendSignal }:
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <ClickableTile

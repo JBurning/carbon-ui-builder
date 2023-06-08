@@ -8,6 +8,7 @@ export interface OverflowMenuItemState {
 	hasDivider?: boolean;
 	link?: string;
 	isDelete?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext?: {
 		name: string;
@@ -22,6 +23,11 @@ export const UIOverflowMenuItem = ({ state, sendSignal }: {
 }) => {
 	if (state.type !== 'overflow-menu-item') {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
+		return <></>;
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
 		return <></>;
 	}
 

@@ -11,7 +11,7 @@ export interface GridState {
 	type: string;
 	items: any[]; // TODO row type
 	id: string | number;
-	isHidden: boolean | string;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -29,7 +29,7 @@ export const UIGrid = ({ state, setState, setGlobalState, sendSignal }: {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
 		return <></>;
 	}
-	if (state.isHidden == 'true') {
+	if (state.hidden == 'true') {
 		return <></>;
 	}
 
@@ -40,6 +40,11 @@ export const UIGrid = ({ state, setState, setGlobalState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Grid className={cssClasses}>

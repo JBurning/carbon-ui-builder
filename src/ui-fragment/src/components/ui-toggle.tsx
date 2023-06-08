@@ -10,6 +10,7 @@ export interface ToggleState {
 	size: string;
 	checked?: boolean;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	id: string | number;
 	cssClasses?: CssClasses[];
 	codeContext: {
@@ -40,12 +41,17 @@ export const UIToggle = ({ state, setState, sendSignal }: {
 		cssClasses += stringToCssClassName(state.codeContext.name);
 	}
 
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
+	}
+
 	const toggle = (event: any) => {
 		let signal: string;
 		if (event.target.checked) {
-			signal = 'toggle_on'
+			signal = 'toggleOn'
 		} else {
-			signal = 'toggle_off'
+			signal = 'toggleOff'
 		}
 		sendSignal(state.id, signal, { ...state, checked: event.target.checked })
 	}

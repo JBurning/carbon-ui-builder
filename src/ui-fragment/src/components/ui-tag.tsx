@@ -12,6 +12,7 @@ export interface TagState {
 	closeLabel?: string;
 	filter?: boolean;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -37,6 +38,11 @@ export const UITag = ({ state, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Tag

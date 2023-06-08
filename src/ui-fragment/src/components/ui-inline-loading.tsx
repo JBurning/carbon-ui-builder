@@ -15,6 +15,7 @@ export interface InlineLoadingState {
 	finishedIconDescription: string;
 	successText: string;
 	successDelay: number;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -40,6 +41,11 @@ export const UIInlineLoading = ({ state, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	const status: any = {

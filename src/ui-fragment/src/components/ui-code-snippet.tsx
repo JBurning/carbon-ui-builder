@@ -8,6 +8,7 @@ export interface CodeSnippetState {
 	variant: string;
 	code: string;
 	id: string | number;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	light: boolean;
 	codeContext: {
@@ -34,6 +35,11 @@ export const UICodeSnippet = ({ state, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <CodeSnippet

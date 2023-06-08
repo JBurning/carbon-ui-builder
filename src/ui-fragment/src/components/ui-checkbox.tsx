@@ -9,6 +9,7 @@ export interface CheckboxState {
 	checked: boolean;
 	id: string | number;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -34,6 +35,11 @@ export const UICheckbox = ({ state, setState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Checkbox

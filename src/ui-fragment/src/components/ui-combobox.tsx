@@ -17,6 +17,7 @@ export interface ComboBoxState {
 	warn?: boolean;
 	warnText?: string;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	selectionFeedback?: string;
 	direction?: string;
 	size?: string;
@@ -49,6 +50,11 @@ export const UIComboBox = ({ state, setState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	const ComboOrMulti = state.isMulti ? FilterableMultiSelect : ComboBox;

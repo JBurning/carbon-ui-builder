@@ -14,39 +14,91 @@ export const View = () => {
 	// TEMP, REVERT THIS CHANGE LATER
 	if (!fragment.data.actions) {
 		fragment.data.actions = [
+				// Switcher Fragment
+				// Latter Grid
+				{
+					"source": "14",
+					"signal": "switch_0",
+					"destination": "19",
+					"slot": "hidden",
+					"slot_param": "true"
+				},
+				// Button
+				{
+					"source": "14",
+					"signal": "switch_0",
+					"destination": "52",
+					"slot": "hidden",
+					"slot_param": "false"
+				},
+				// Former Text
+				{
+					"source": "14",
+					"signal": "switch_0",
+					"destination": "33",
+					"slot": "hidden",
+					"slot_param": "false"
+				},
+				// Radio Tile Group
+				{
+					"source": "14",
+					"signal": "switch_0",
+					"destination": "37",
+					"slot": "hidden",
+					"slot_param": "false"
+				},
+				// Radio Tile Group
+				{
+					"source": "14",
+					"signal": "switch_1",
+					"destination": "37",
+					"slot": "hidden",
+					"slot_param": "true"
+				},
+				// Latter Grid
 				{
 					"source": "14",
 					"signal": "switch_1",
 					"destination": "19",
-					"slot": "isHidden",
-					"slot_param": "true"
+					"slot": "hidden",
+					"slot_param": "false"
 				},
+				// Former Text
 				{
 					"source": "14",
-					"signal": "switch_2",
-					"destination": "37",
-					"slot": "isHidden",
+					"signal": "switch_1",
+					"destination": "33",
+					"slot": "hidden",
+					"slot_param": "true"
+				},
+				// Button
+				{
+					"source": "14",
+					"signal": "switch_1",
+					"destination": "52",
+					"slot": "hidden",
+					"slot_param": "true"
+				},
+				// Toggle Fragment
+				{
+					"source": "16",
+					"signal": "toggleOn",
+					"destination": "14",
+					"slot": "hidden",
 					"slot_param": "true"
 				},
 				{
 					"source": "16",
-					"signal": "toggle_on",
+					"signal": "toggleOff",
 					"destination": "14",
-					"slot": "isHidden",
-					"slot_param": "true"
-				},
-				{
-					"source": "16",
-					"signal": "toggle_off",
-					"destination": "14",
-					"slot": "isHidden",
+					"slot": "hidden",
 					"slot_param": "false"
 				},
 				{
 					"source": "2",
 					"signal": "click",
 					"destination": "3",
-					"slot": "isHidden",
+					"slot": "hidden",
 					"slot_param": "true"
 				}
 			]

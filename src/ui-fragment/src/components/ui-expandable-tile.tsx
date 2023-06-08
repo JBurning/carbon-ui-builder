@@ -12,6 +12,7 @@ export interface ExpandableTileState {
 	light?: boolean;
 	expanded?: boolean;
 	items?: any[];
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -45,6 +46,11 @@ export const UIExpandableTile = ({ state, setState, setGlobalState, sendSignal }
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	const { aboveFold, belowFold } = getFoldObjects(state);

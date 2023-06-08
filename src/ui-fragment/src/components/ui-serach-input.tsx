@@ -13,6 +13,7 @@ export interface SearchState {
 	closeButtonLabelText?: string;
 	defaultValue?: string;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	light?: boolean;
 	role?: string;
 	expandable: boolean;
@@ -44,6 +45,11 @@ export const UISearchInput = ({ state, setState, name }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return state.expandable

@@ -9,6 +9,7 @@ export interface LoadingState {
 	size?: string;
 	active?: boolean;
 	overlay?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -34,6 +35,11 @@ export const UILoading = ({ state, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Loading

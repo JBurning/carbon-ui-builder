@@ -13,6 +13,7 @@ export interface AccordionItemState {
 	title: string;
 	id: string | number;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -38,6 +39,11 @@ export const UIAccordionItem = ({ state, setState, setGlobalState, sendSignal }:
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <AccordionItem

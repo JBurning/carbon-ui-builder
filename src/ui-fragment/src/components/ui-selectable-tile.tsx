@@ -12,6 +12,7 @@ export interface SelectableTileState {
 	light?: boolean;
 	items?: any[];
 	standalone?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -40,6 +41,11 @@ export const UISelectableTile = ({ state, setState, setGlobalState, sendSignal }
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <SelectableTile

@@ -11,6 +11,7 @@ export interface RowState {
 	type: string;
 	items: any[]; // TODO row type
 	id: string | number;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -36,6 +37,11 @@ export const UIRow = ({ state, setState, setGlobalState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+	
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Row className={cssClasses}>

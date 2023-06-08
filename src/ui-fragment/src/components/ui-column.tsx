@@ -21,6 +21,7 @@ export interface ColumnState {
 	xLargeOffset?: number;
 	maxSpan?: number;
 	maxOffset?: number;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -46,6 +47,11 @@ export const UIColumn = ({ state, setState, setGlobalState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+	
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Column

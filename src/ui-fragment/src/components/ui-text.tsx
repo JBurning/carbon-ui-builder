@@ -38,6 +38,11 @@ export const UIText = ({ state, sendSignal }: {
 		cssClasses += stringToCssClassName(state.codeContext.name);
 	}
 
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
+	}
+
 	if (state.richText) {
 		if (state.isSection) {
 			return <section className={cssClasses} dangerouslySetInnerHTML={{ __html: state.richText }} />;

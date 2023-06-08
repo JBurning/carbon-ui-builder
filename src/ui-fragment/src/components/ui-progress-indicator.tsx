@@ -15,6 +15,7 @@ export interface ProgressIndicatorState {
 	}[];
 	currentIndex?: number;
 	isVertical?: boolean;
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -40,6 +41,11 @@ export const UIProgressIndicator = ({ state, setState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <ProgressIndicator

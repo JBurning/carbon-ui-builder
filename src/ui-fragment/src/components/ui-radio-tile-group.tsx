@@ -11,6 +11,7 @@ export interface RadioTileGroupState {
 	type: string;
 	id: string | number;
 	legend?: string;
+	hidden?: string | boolean;
 	disabled?: string | boolean;
 	valueSelected?: string | number;
 	items?: any[];
@@ -52,6 +53,11 @@ export const UIRadioTileGroup = ({ state, setState, setGlobalState, sendSignal }
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+	
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <TileGroup

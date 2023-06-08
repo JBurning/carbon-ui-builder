@@ -12,6 +12,7 @@ export interface TextInputState {
 	helperText?: string;
 	defaultValue?: string;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	light?: boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
@@ -39,6 +40,11 @@ export const UITextInput = ({ state, setState, name }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <TextInput

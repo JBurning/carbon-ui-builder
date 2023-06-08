@@ -16,6 +16,7 @@ export interface DropdownState {
 	warn?: boolean;
 	warnText?: string;
 	disabled?: string | boolean;
+	hidden?: string | boolean;
 	hideLabel?: boolean;
 	direction?: string;
 	size?: string;
@@ -48,6 +49,11 @@ export const UIDropdown = ({ state, setState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	const DropdownOrMulti = state.isMulti ? MultiSelect : Dropdown;

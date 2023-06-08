@@ -48,6 +48,12 @@ export const UIFragment = ({ state, setState }: UIFragmentProps) => {
 			...state.data,
 			items: changedItems
 		})
+
+		console.log(
+			"ID: " + id +
+			"\nSIGNAL: " + signal +
+			"\nSTATE: " + JSON.stringify(changedItems)
+			)
 	}
 
 	const iterateItems = (item: any, action: Action, otherStateChanges: any) => {

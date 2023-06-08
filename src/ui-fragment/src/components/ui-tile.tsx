@@ -11,6 +11,7 @@ export interface TileState {
 	type: string;
 	light?: boolean;
 	items?: any[];
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -36,6 +37,11 @@ export const UITile = ({ state, setState, setGlobalState, sendSignal }: {
 			cssClasses += ' ';
 		}
 		cssClasses += stringToCssClassName(state.codeContext.name);
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
+		return <></>;
 	}
 
 	return <Tile

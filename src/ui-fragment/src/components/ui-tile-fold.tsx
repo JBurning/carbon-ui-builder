@@ -6,6 +6,7 @@ import { renderComponents, setItemInState } from '../utils';
 export interface TileFoldState {
 	type: string;
 	items?: any[];
+	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
 	codeContext?: {
 		name: string;
@@ -20,6 +21,11 @@ export const UITileFold = ({ state, setState, setGlobalState, sendSignal }: {
 }) => {
 	if (state.type !== 'tile-fold') {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
+		return <></>;
+	}
+
+	// Actions Block
+	if (state.hidden == 'true') {
 		return <></>;
 	}
 
