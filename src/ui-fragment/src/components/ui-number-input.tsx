@@ -17,8 +17,8 @@ export interface NumberInputState {
 	warn?: boolean;
 	hideLabel?: boolean;
 	hideSteppers?: boolean;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	readOnly?: boolean;
 	invalid?: boolean;
 	invalidText?: string;
@@ -52,7 +52,7 @@ export const UINumberInput = ({ state, setState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

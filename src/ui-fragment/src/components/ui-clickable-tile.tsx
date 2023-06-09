@@ -10,8 +10,8 @@ import {
 export interface ClickableTileState {
 	type: string;
 	light?: boolean;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	items?: any[];
 	cssClasses?: CssClasses[];
 	codeContext: {
@@ -41,7 +41,7 @@ export const UIClickableTile = ({ state, setState, setGlobalState, sendSignal }:
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

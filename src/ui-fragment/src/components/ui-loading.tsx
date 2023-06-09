@@ -38,7 +38,7 @@ export const UILoading = ({ state, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

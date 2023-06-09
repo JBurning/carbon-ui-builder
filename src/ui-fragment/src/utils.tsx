@@ -66,7 +66,7 @@ export const jsonToState = (json: any, allFragments: any[]) => {
 		}
 		return {
 			...fragment.data,
-			allCssClasses: [...fragment.allCssClasses]
+			allCssClasses: [...(fragment.allCssClasses || [])]
 		};
 	}
 
@@ -98,7 +98,7 @@ export const expandJsonToState = (json: any) => {
 	// add css from all the fragments to state
 	const allCssClasses = [...state.allCssClasses];
 	json.forEach((fragment: any) => {
-		addIfNotExist(allCssClasses, fragment.allCssClasses);
+		addIfNotExist(allCssClasses, (fragment.allCssClasses || []));
 	});
 
 	return {
@@ -196,7 +196,13 @@ export const isFragment = (json: any) => {
 		&& Array.isArray(json.items);
 };
 
-export const renderComponents = (state: any, setState: (state: any) => void, setGlobalState: (state: any) => void, sendSignal: (id: number | string, signal: string) => void) => {
+
+export const renderComponents = (
+	state: any,
+	setState: (state: any) => void,
+	setGlobalState: (state: any) => void,
+	sendSignal: (id: number | string, signal: string) => void
+) => {
 	switch (state.type) {
 		case 'accordion':
 			return <UIAccordion key={state.id} state={state} sendSignal={sendSignal} setState={setState} setGlobalState={setGlobalState} />;

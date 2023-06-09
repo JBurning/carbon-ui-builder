@@ -8,7 +8,6 @@ export const View = () => {
 
 	const params = useParams();
 
-	// Gets JSON from editor
 	const fragment = fragments.find((fragment: any) => fragment.id === params.id);
 
 	// TEMP, REVERT THIS CHANGE LATER

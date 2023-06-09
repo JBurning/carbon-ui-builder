@@ -39,7 +39,7 @@ export const UISelectableTileGroup = ({ state, setState, setGlobalState, sendSig
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

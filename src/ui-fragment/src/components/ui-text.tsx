@@ -25,9 +25,6 @@ export const UIText = ({ state, sendSignal }: {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
 		return <></>;
 	}
-	if (state.hidden == 'true' || state.hidden == true) {
-		return <></>;
-	}
 
 	let cssClasses = state.cssClasses?.map((cc: any) => cc.id).join(' ') || '';
 
@@ -39,7 +36,7 @@ export const UIText = ({ state, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

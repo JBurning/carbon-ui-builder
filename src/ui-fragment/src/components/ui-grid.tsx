@@ -29,7 +29,7 @@ export const UIGrid = ({ state, setState, setGlobalState, sendSignal }: {
 		// eslint-disable-next-line react/jsx-no-useless-fragment
 		return <></>;
 	}
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 
@@ -43,7 +43,7 @@ export const UIGrid = ({ state, setState, setGlobalState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

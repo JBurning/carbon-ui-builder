@@ -12,8 +12,8 @@ export interface SearchState {
 	value?: string;
 	closeButtonLabelText?: string;
 	defaultValue?: string;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	light?: boolean;
 	role?: string;
 	expandable: boolean;
@@ -48,7 +48,7 @@ export const UISearchInput = ({ state, setState, name }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

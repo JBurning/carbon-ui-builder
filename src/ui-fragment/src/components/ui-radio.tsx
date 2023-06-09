@@ -7,7 +7,7 @@ export interface RadioState {
 	type: string;
 	id: string | number;
 	labelText: string;
-	disabled?: string | boolean;
+	disabled?: boolean;
 	checked?: boolean;
 	hidden?: string | boolean;
 	cssClasses?: CssClasses[];
@@ -39,7 +39,7 @@ export const UIRadio = ({ state, setState, name }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

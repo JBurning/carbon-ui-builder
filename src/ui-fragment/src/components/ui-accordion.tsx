@@ -43,7 +43,7 @@ export const UIAccordion = ({ state, sendSignal, setState, setGlobalState }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

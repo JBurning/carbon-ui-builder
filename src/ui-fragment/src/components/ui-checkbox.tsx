@@ -8,8 +8,8 @@ export interface CheckboxState {
 	label: string;
 	checked: boolean;
 	id: string | number;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -38,7 +38,7 @@ export const UICheckbox = ({ state, setState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

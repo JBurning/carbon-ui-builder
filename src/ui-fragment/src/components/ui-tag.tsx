@@ -11,8 +11,8 @@ export interface TagState {
 	size?: string;
 	closeLabel?: string;
 	filter?: boolean;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -41,7 +41,7 @@ export const UITag = ({ state, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

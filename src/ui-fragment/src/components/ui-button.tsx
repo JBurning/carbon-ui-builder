@@ -9,8 +9,8 @@ export interface ButtonState {
 	size: string;
 	text: string;
 	id: string | number;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	cssClasses?: CssClasses[];
 	codeContext: {
 		name: string;
@@ -40,7 +40,7 @@ export const UIButton = ({ state, setGlobalState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

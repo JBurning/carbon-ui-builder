@@ -40,7 +40,7 @@ export const UIRow = ({ state, setState, setGlobalState, sendSignal }: {
 	}
 	
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

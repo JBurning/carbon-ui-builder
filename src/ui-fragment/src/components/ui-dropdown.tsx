@@ -15,8 +15,8 @@ export interface DropdownState {
 	isInline?: boolean;
 	warn?: boolean;
 	warnText?: string;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	hideLabel?: boolean;
 	direction?: string;
 	size?: string;
@@ -52,7 +52,7 @@ export const UIDropdown = ({ state, setState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 

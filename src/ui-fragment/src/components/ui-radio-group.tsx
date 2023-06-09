@@ -45,7 +45,7 @@ export const UIRadioGroup = ({ state, setState, setGlobalState, sendSignal }: {
 	}
 
 	// Actions Block
-	if (state.hidden == 'true') {
+	if (state.hidden === true) {
 		return <></>;
 	}
 
