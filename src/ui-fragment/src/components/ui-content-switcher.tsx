@@ -9,8 +9,8 @@ export interface ContentSwitcherState {
 	size: [];
 	id: string | number;
 	selectedIndex: number;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	cssClasses?: CssClasses[];
 	style?: any;
 	codeContext: {
@@ -57,7 +57,7 @@ export const UIContentSwitcher = ({ state, sendSignal }: {
 				className={step.className}
 				name={step.name}
 				text={step.text}
-				disabled={(state.disabled == true || state.disabled == "true") ? state.disabled : step.disabled}
+				disabled={step.disabled}
 				key={index}
 			/>)
 		}

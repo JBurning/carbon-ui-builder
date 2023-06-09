@@ -9,8 +9,8 @@ export interface ToggleState {
 	offText: string;
 	size: string;
 	checked?: boolean;
-	disabled?: string | boolean;
-	hidden?: string | boolean;
+	hidden?: boolean;
+	disabled?: boolean;
 	id: string | number;
 	cssClasses?: CssClasses[];
 	codeContext: {
